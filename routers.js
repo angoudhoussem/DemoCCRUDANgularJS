@@ -33,4 +33,18 @@ router.get('/all', function(req, res, next) {
 });
 
 
+router.get('/all12', function(req, res, next) {
+
+    connection.query('SELECT * from Employe ', function(err, rows, fields) {
+        // connection.end();
+        if (!err) {
+            console.log('The solution is: ', rows);
+            res.end(JSON.stringify(rows));
+        }  else
+            console.log('Error while performing Query.');
+    });
+});
+
+
+
 module.exports = router;
